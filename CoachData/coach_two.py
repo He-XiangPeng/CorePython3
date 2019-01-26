@@ -1,5 +1,6 @@
 """deal with data """
 
+
 def sanitize(time_string):
     if '-' in time_string:
         splitter = '-'
@@ -8,7 +9,8 @@ def sanitize(time_string):
     else:
         return(time_string)
     (mins, secs) = time_string.split(splitter)
-    return(mins + '.' +secs)
+    return(mins + '.' + secs)
+
 
 with open('james.txt') as jaf:
     data = jaf.readline()
@@ -31,4 +33,3 @@ print(sorted([sanitize(t) for t in james]))
 print(sorted([sanitize(t) for t in julie]))
 print(sorted([sanitize(t) for t in mikey]))
 print(sorted([sanitize(t) for t in sarah]))
-

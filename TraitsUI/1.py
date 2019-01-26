@@ -64,6 +64,7 @@ class TextEditorDemo(HasTraits):
         buttons=['OK']
     )
 
+
 # Create the demo:
 demo = TextEditorDemo()
 

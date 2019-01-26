@@ -4,6 +4,7 @@
 from coach_classlist import AthleteList
 import pickle
 
+
 def get_coach_data(filename):
     try:
         with open(filename) as f:

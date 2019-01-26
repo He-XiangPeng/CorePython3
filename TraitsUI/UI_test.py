@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from traits.api import HasTraits, Str, Int
 
+
 class SimpleEmployee(HasTraits):
     first_name = Str
     last_name = Str
@@ -8,6 +9,7 @@ class SimpleEmployee(HasTraits):
 
     employee_number = Str
     salary = Int
+
 
 sam = SimpleEmployee()
 sam.configure_traits()

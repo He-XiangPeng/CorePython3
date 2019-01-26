@@ -35,7 +35,7 @@ class AthleteList(list):
         self.extend(a_times)
 
     def top3(self):
-        return  (sorted(set([sanitize(t) for t in self]))[0:3])
+        return (sorted(set([sanitize(t) for t in self]))[0:3])
 
 
 """method """
@@ -50,6 +50,7 @@ def get_coach_data(filename):
     except IOError as ioerr:
         print('File Error:' + str(ioerr))
         return (None)
+
 
 james = get_coach_data('james2.txt')
 julie = get_coach_data('julie2.txt')

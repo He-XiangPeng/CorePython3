@@ -27,6 +27,7 @@ class Athlete:
     def add_times(self, list_of_time):
         self.times.extend(list_of_time)
 
+
 """method """
 
 
@@ -39,6 +40,7 @@ def get_coach_data(filename):
     except IOError as ioerr:
         print('File Error:' + str(ioerr))
         return (None)
+
 
 james = get_coach_data('james2.txt')
 julie = get_coach_data('julie2.txt')

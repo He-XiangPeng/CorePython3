@@ -1,15 +1,20 @@
 #!/usr/bin/env python
-import pygame,sys,time,random
+import pygame
+import sys
+import time
+import random
 from pygame.locals import *
 # 定义颜色变量
-redColour = pygame.Color(255,0,0)
-blackColour = pygame.Color(0,0,0)
-whiteColour = pygame.Color(255,255,255)
-greyColour = pygame.Color(150,150,150)
+redColour = pygame.Color(255, 0, 0)
+blackColour = pygame.Color(0, 0, 0)
+whiteColour = pygame.Color(255, 255, 255)
+greyColour = pygame.Color(150, 150, 150)
 
 # 定义gameOver函数
+
+
 def gameOver(playSurface):
-    gameOverFont = pygame.font.Font('arial.ttf',72)
+    gameOverFont = pygame.font.Font('arial.ttf', 72)
     gameOverSurf = gameOverFont.render('Game Over', True, greyColour)
     gameOverRect = gameOverSurf.get_rect()
     gameOverRect.midtop = (320, 180)
@@ -20,18 +25,20 @@ def gameOver(playSurface):
     sys.exit()
 
 # 定义main函数
+
+
 def main():
     # 初始化pygame
     pygame.init()
     fpsClock = pygame.time.Clock()
     # 创建pygame显示层
-    playSurface = pygame.display.set_mode((640,480))
+    playSurface = pygame.display.set_mode((640, 480))
     pygame.display.set_caption('贪吃蛇')
 
     # 初始化变量
-    snakePosition = [100,100]
-    snakeSegments = [[100,100],[80,100],[60,100]]
-    raspberryPosition = [300,300]
+    snakePosition = [100, 100]
+    snakeSegments = [[100, 100], [80, 100], [60, 100]]
+    raspberryPosition = [300, 300]
     raspberrySpawned = 1
     direction = 'right'
     changeDirection = direction
@@ -72,7 +79,7 @@ def main():
         if direction == 'down':
             snakePosition[1] += 20
         # 增加蛇的长度
-        snakeSegments.insert(0,list(snakePosition))
+        snakeSegments.insert(0, list(snakePosition))
         # 判断是否吃掉了树莓
         if snakePosition[0] == raspberryPosition[0] and snakePosition[1] == raspberryPosition[1]:
             raspberrySpawned = 0
@@ -80,15 +87,17 @@ def main():
             snakeSegments.pop()
         # 如果吃掉树莓，则重新生成树莓
         if raspberrySpawned == 0:
-            x = random.randrange(1,32)
-            y = random.randrange(1,24)
-            raspberryPosition = [int(x*20),int(y*20)]
+            x = random.randrange(1, 32)
+            y = random.randrange(1, 24)
+            raspberryPosition = [int(x * 20), int(y * 20)]
             raspberrySpawned = 1
         # 绘制pygame显示层
         playSurface.fill(blackColour)
         for position in snakeSegments:
-            pygame.draw.rect(playSurface,whiteColour,Rect(position[0],position[1],20,20))
-            pygame.draw.rect(playSurface,redColour,Rect(raspberryPosition[0], raspberryPosition[1],20,20))
+            pygame.draw.rect(playSurface, whiteColour, Rect(
+                position[0], position[1], 20, 20))
+            pygame.draw.rect(playSurface, redColour, Rect(
+                raspberryPosition[0], raspberryPosition[1], 20, 20))
 
         # 刷新pygame显示层
         pygame.display.flip()
@@ -101,6 +110,7 @@ def main():
                     gameOver(playSurface)
         # 控制游戏速度
         fpsClock.tick(10)
+
 
 if __name__ == "__main__":
     main()

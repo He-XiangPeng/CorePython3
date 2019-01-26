@@ -31,7 +31,8 @@ movies.extend(["Terry Jones & Terry Gilliam", 91])
 """extend在列表末尾添加一个数据项集合"""
 print(movies)  # 打印列表
 
-charpman = ["Graham chapman", ["Michael Plain", "John Cleese", "Terry Gilliam", "Eric Idle", "Terry Jones"]]
+charpman = ["Graham chapman", ["Michael Plain", "John Cleese",
+                               "Terry Gilliam", "Eric Idle", "Terry Jones"]]
 movies.extend(charpman)
 for each_item in movies:
     print(each_item)
